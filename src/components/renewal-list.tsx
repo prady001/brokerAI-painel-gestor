@@ -89,7 +89,10 @@ export function RenewalList({ renewals }: RenewalListProps) {
         </thead>
         <tbody className="divide-y divide-gray-200 bg-white">
           {renewals.map((renewal) => (
-            <tr key={renewal.id}>
+            <tr
+              key={renewal.id}
+              className="transition-colors duration-150 hover:bg-gray-50"
+            >
               <td className="whitespace-nowrap px-4 py-3 text-sm text-gray-900">
                 {formatDate(renewal.expiry_date)}
               </td>

@@ -26,7 +26,7 @@ function formatPhone(phone: string): string {
 
 function ConversationRow({ item }: { item: ActiveConversation }) {
   return (
-    <li className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 shadow-sm">
+    <li className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 shadow-sm transition-colors duration-150 hover:bg-gray-50 hover:border-gray-300">
       <span className="font-mono text-sm text-gray-900">
         {formatPhone(item.phone)}
       </span>

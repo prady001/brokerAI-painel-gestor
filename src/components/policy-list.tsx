@@ -95,7 +95,10 @@ export function PolicyList({ policies }: PolicyListProps) {
         </thead>
         <tbody className="divide-y divide-gray-200 bg-white">
           {policies.map((policy) => (
-            <tr key={policy.id}>
+            <tr
+              key={policy.id}
+              className="transition-colors duration-150 hover:bg-gray-50"
+            >
               <td className="whitespace-nowrap px-4 py-3 text-sm font-medium text-gray-900 font-mono">
                 {policy.policy_number}
               </td>

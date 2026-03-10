@@ -42,7 +42,7 @@ export default async function ClientDetailPage({ params }: ClientDetailPageProps
   return (
     <main className="p-6">
       <nav className="mb-4 text-sm text-gray-500">
-        <Link href="/clients" className="hover:text-gray-700">
+        <Link href="/clients" className="transition-colors hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded">
           Clientes
         </Link>
         <span className="mx-2">/</span>

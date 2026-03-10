@@ -91,7 +91,10 @@ export function ClaimList({ claims }: ClaimListProps) {
         </thead>
         <tbody className="divide-y divide-gray-200 bg-white">
           {claims.map((claim) => (
-            <tr key={claim.id}>
+            <tr
+              key={claim.id}
+              className="transition-colors duration-150 hover:bg-gray-50"
+            >
               <td className="whitespace-nowrap px-4 py-3 text-sm text-gray-900">
                 {claim.type ?? '—'}
               </td>

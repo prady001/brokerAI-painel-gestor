@@ -70,11 +70,14 @@ export function ClientTable({ clients }: ClientTableProps) {
         </thead>
         <tbody className="divide-y divide-gray-200 bg-white">
           {clients.map((client) => (
-            <tr key={client.id}>
+            <tr
+              key={client.id}
+              className="transition-colors duration-150 hover:bg-gray-50"
+            >
               <td className="whitespace-nowrap px-4 py-3 text-sm font-medium text-gray-900">
                 <Link
                   href={`/clients/${client.id}`}
-                  className="text-blue-600 hover:text-blue-800 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
+                  className="text-blue-600 transition-colors hover:text-blue-800 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 >
                   {client.full_name}
                 </Link>

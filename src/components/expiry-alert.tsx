@@ -25,7 +25,7 @@ const variantBadge = {
 function ExpiryRow({ label, count, variant }: ExpiryItem) {
   return (
     <div
-      className={`flex items-center justify-between rounded-md border px-3 py-2 ${variantStyles[variant]}`}
+      className={`flex items-center justify-between rounded-md border px-3 py-2 transition-opacity duration-150 hover:opacity-90 ${variantStyles[variant]}`}
     >
       <span className="flex items-center gap-2 font-medium">
         <span aria-hidden>{variantBadge[variant]}</span>
