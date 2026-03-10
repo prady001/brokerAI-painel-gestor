@@ -1,4 +1,5 @@
 import type { RenewalResponse } from '@/lib/types';
+import { EmptyState } from '@/components/empty-state';
 
 const RENEWAL_STATUS_STYLES: Record<RenewalResponse['status'], string> = {
   pending: 'bg-white/10 text-text-secondary',
@@ -44,9 +45,10 @@ interface RenewalListProps {
 export function RenewalList({ renewals }: RenewalListProps) {
   if (renewals.length === 0) {
     return (
-      <p className="rounded-lg border border-border bg-bg-card px-4 py-6 text-center text-text-secondary">
-        Nenhuma renovação cadastrada.
-      </p>
+      <EmptyState
+        title="Nenhuma renovação cadastrada"
+        description="Não há renovações pendentes para este cliente."
+      />
     );
   }
 

@@ -1,4 +1,5 @@
 import type { PolicyResponse } from '@/lib/types';
+import { EmptyState } from '@/components/empty-state';
 
 const POLICY_TYPE_LABELS: Record<NonNullable<PolicyResponse['type']>, string> = {
   auto: 'Automóvel',
@@ -50,9 +51,10 @@ interface PolicyListProps {
 export function PolicyList({ policies }: PolicyListProps) {
   if (policies.length === 0) {
     return (
-      <p className="rounded-lg border border-border bg-bg-card px-4 py-6 text-center text-text-secondary">
-        Nenhuma apólice cadastrada.
-      </p>
+      <EmptyState
+        title="Nenhuma apólice cadastrada"
+        description="Este cliente ainda não possui apólices vinculadas."
+      />
     );
   }
 

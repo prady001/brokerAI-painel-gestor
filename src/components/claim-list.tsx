@@ -1,4 +1,5 @@
 import type { ClaimResponse } from '@/lib/types';
+import { EmptyState } from '@/components/empty-state';
 
 const CLAIM_STATUS_STYLES: Record<ClaimResponse['status'], string> = {
   open: 'bg-blue/20 text-blue-light',
@@ -46,9 +47,10 @@ interface ClaimListProps {
 export function ClaimList({ claims }: ClaimListProps) {
   if (claims.length === 0) {
     return (
-      <p className="rounded-lg border border-border bg-bg-card px-4 py-6 text-center text-text-secondary">
-        Nenhum sinistro registrado.
-      </p>
+      <EmptyState
+        title="Nenhum sinistro registrado"
+        description="Não há sinistros para este cliente."
+      />
     );
   }
 

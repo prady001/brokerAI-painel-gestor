@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { ClientResponse } from '@/lib/types';
 import { maskCpf } from '@/lib/mask-cpf';
+import { EmptyState } from '@/components/empty-state';
 
 function formatDate(iso: string): string {
   try {
@@ -31,9 +32,10 @@ interface ClientTableProps {
 export function ClientTable({ clients }: ClientTableProps) {
   if (clients.length === 0) {
     return (
-      <p className="rounded-lg border border-border bg-bg-card px-4 py-8 text-center text-text-secondary">
-        Nenhum cliente encontrado.
-      </p>
+      <EmptyState
+        title="Nenhum cliente encontrado"
+        description="Quando houver clientes cadastrados, eles aparecerão aqui."
+      />
     );
   }
 

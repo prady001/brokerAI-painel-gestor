@@ -1,6 +1,7 @@
 import { api } from '@/lib/api';
 import { formatTtl } from '@/lib/format-ttl';
 import type { ActiveConversation } from '@/lib/types';
+import { EmptyState } from '@/components/empty-state';
 import { PageHeader } from '@/components/page-header';
 import { Reveal } from '@/components/reveal';
 
@@ -87,9 +88,10 @@ export default async function AgentStatusPage() {
             Conversas de sinistro ativas
           </h2>
         {data.active_claims.length === 0 ? (
-          <p className="rounded-lg border border-border bg-bg-card px-4 py-6 text-center text-sm text-text-muted">
-            Nenhuma conversa de sinistro ativa no momento.
-          </p>
+          <EmptyState
+            title="Nenhuma conversa de sinistro ativa"
+            description="Quando houver conversas de sinistro em andamento, elas aparecerão aqui."
+          />
         ) : (
           <ul className="space-y-2">
             {data.active_claims.map((item) => (
@@ -106,9 +108,10 @@ export default async function AgentStatusPage() {
             Onboardings em andamento
           </h2>
         {data.active_onboardings.length === 0 ? (
-          <p className="rounded-lg border border-border bg-bg-card px-4 py-6 text-center text-sm text-text-muted">
-            Nenhum onboarding em andamento no momento.
-          </p>
+          <EmptyState
+            title="Nenhum onboarding em andamento"
+            description="Quando houver onboardings ativos, eles aparecerão aqui."
+          />
         ) : (
           <ul className="space-y-2">
             {data.active_onboardings.map((item) => (

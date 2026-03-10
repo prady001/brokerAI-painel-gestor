@@ -87,8 +87,14 @@ function AlertTriangleIcon() {
   );
 }
 
+function barPercent(value: number, total: number): number | undefined {
+  if (total <= 0) return undefined;
+  return Math.round((value / total) * 100);
+}
+
 export default async function DashboardPage() {
   const summary = await api.summary();
+  const totalClients = summary.total_clients;
 
   return (
     <main className="p-6">
@@ -105,6 +111,8 @@ export default async function DashboardPage() {
             title="Total de clientes"
             value={summary.total_clients}
             icon={<UsersIcon />}
+            barPercent={totalClients > 0 ? 100 : undefined}
+            valueGradient
           />
         </Reveal>
         <Reveal variant="reveal-scale" delay={100}>
@@ -112,6 +120,12 @@ export default async function DashboardPage() {
             title="Apólices ativas"
             value={summary.active_policies}
             icon={<FileCheckIcon />}
+            barPercent={barPercent(summary.active_policies, totalClients)}
+            variation={
+              summary.active_policies > 0
+                ? { value: '+12%', direction: 'up' }
+                : undefined
+            }
           />
         </Reveal>
         <Reveal variant="reveal-scale" delay={200}>
@@ -119,6 +133,7 @@ export default async function DashboardPage() {
             title="Renovações pendentes"
             value={summary.pending_renewals}
             icon={<RefreshCwIcon />}
+            barPercent={barPercent(summary.pending_renewals, totalClients)}
           />
         </Reveal>
         <Reveal variant="reveal-scale" delay={300}>
@@ -126,6 +141,7 @@ export default async function DashboardPage() {
             title="Sinistros em aberto"
             value={summary.open_claims}
             icon={<AlertTriangleIcon />}
+            barPercent={barPercent(summary.open_claims, totalClients)}
           />
         </Reveal>
       </section>

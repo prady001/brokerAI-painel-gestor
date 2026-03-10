@@ -1,3 +1,4 @@
+import { ContentFadeIn } from '@/components/content-fade-in';
 import { PanelHeader } from '@/components/panel-header';
 import { PanelSidebar } from '@/components/panel-sidebar';
 
@@ -12,7 +13,9 @@ export default function PainelLayout({
       <PanelSidebar />
       <div className="flex flex-1 flex-col min-w-0">
         <PanelHeader />
-        <main className="flex-1 p-6 bg-bg-deep">{children}</main>
+        <main className="flex-1 p-6 bg-bg-deep">
+          <ContentFadeIn>{children}</ContentFadeIn>
+        </main>
       </div>
     </div>
   );
