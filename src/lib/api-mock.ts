@@ -24,6 +24,33 @@ const MOCK_CLIENTS: ClientResponse[] = [
     birth_date: null,
     created_at: '2026-03-09T14:30:00.000000',
   },
+  {
+    id: 'b2c3d4e5-f6a7-8901-bcde-f12345678901',
+    full_name: 'João Oliveira Costa',
+    cpf_cnpj: '987.654.321-11',
+    phone_whatsapp: '5521988776655',
+    email: 'joao@example.com',
+    birth_date: '1985-05-20',
+    created_at: '2026-03-08T10:15:00.000000',
+  },
+  {
+    id: 'c3d4e5f6-a7b8-9012-cdef-123456789012',
+    full_name: 'Ana Paula Ferreira',
+    cpf_cnpj: '111.222.333-44',
+    phone_whatsapp: '5531999887766',
+    email: null,
+    birth_date: null,
+    created_at: '2026-03-07T08:00:00.000000',
+  },
+  {
+    id: 'd4e5f6a7-b8c9-0123-def0-234567890123',
+    full_name: 'Carlos Eduardo Lima',
+    cpf_cnpj: '555.666.777-88',
+    phone_whatsapp: '5541987654321',
+    email: 'carlos@example.com',
+    birth_date: '1978-11-03',
+    created_at: '2026-03-06T16:45:00.000000',
+  },
 ];
 
 const MOCK_POLICIES = [
