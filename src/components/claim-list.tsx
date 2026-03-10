@@ -1,11 +1,11 @@
 import type { ClaimResponse } from '@/lib/types';
 
 const CLAIM_STATUS_STYLES: Record<ClaimResponse['status'], string> = {
-  open: 'bg-blue-100 text-blue-800',
-  in_progress: 'bg-amber-100 text-amber-800',
-  waiting_insurer: 'bg-purple-100 text-purple-800',
-  escalated: 'bg-orange-100 text-orange-800',
-  closed: 'bg-gray-100 text-gray-700',
+  open: 'bg-blue/20 text-blue-light',
+  in_progress: 'bg-amber-500/20 text-amber-400',
+  waiting_insurer: 'bg-purple-500/20 text-purple-400',
+  escalated: 'bg-orange-500/20 text-orange-400',
+  closed: 'bg-white/10 text-text-muted',
 };
 
 const CLAIM_STATUS_LABELS: Record<ClaimResponse['status'], string> = {
@@ -17,8 +17,8 @@ const CLAIM_STATUS_LABELS: Record<ClaimResponse['status'], string> = {
 };
 
 const SEVERITY_STYLES: Record<NonNullable<ClaimResponse['severity']>, string> = {
-  simple: 'bg-slate-100 text-slate-700',
-  grave: 'bg-red-100 text-red-800',
+  simple: 'bg-white/10 text-text-secondary',
+  grave: 'bg-red-500/20 text-red-400',
 };
 
 const SEVERITY_LABELS: Record<NonNullable<ClaimResponse['severity']>, string> = {
@@ -46,56 +46,56 @@ interface ClaimListProps {
 export function ClaimList({ claims }: ClaimListProps) {
   if (claims.length === 0) {
     return (
-      <p className="rounded-lg border border-gray-200 bg-gray-50 px-4 py-6 text-center text-gray-500">
+      <p className="rounded-lg border border-border bg-bg-card px-4 py-6 text-center text-text-secondary">
         Nenhum sinistro registrado.
       </p>
     );
   }
 
   return (
-    <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-      <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-gray-50">
+    <div className="overflow-hidden rounded-lg border border-border bg-bg-card shadow-card-glow">
+      <table className="min-w-full">
+        <thead>
           <tr>
             <th
               scope="col"
-              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted"
             >
               Tipo
             </th>
             <th
               scope="col"
-              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted"
             >
               Severidade
             </th>
             <th
               scope="col"
-              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted"
             >
               Status
             </th>
             <th
               scope="col"
-              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted"
             >
               Ocorrência
             </th>
             <th
               scope="col"
-              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted"
             >
               Abertura
             </th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-200 bg-white">
+        <tbody>
           {claims.map((claim) => (
             <tr
               key={claim.id}
-              className="transition-colors duration-150 hover:bg-gray-50"
+              className="border-b border-border transition-colors duration-150 ease-out hover:bg-white/5"
             >
-              <td className="whitespace-nowrap px-4 py-3 text-sm text-gray-900">
+              <td className="whitespace-nowrap px-4 py-3 text-sm text-text-primary">
                 {claim.type ?? '—'}
               </td>
               <td className="whitespace-nowrap px-4 py-3">
@@ -116,10 +116,10 @@ export function ClaimList({ claims }: ClaimListProps) {
                   {CLAIM_STATUS_LABELS[claim.status]}
                 </span>
               </td>
-              <td className="whitespace-nowrap px-4 py-3 text-sm text-gray-600">
+              <td className="whitespace-nowrap px-4 py-3 text-sm text-text-secondary">
                 {formatDate(claim.occurrence_date)}
               </td>
-              <td className="whitespace-nowrap px-4 py-3 text-sm text-gray-600">
+              <td className="whitespace-nowrap px-4 py-3 text-sm text-text-secondary">
                 {formatDate(claim.opened_at)}
               </td>
             </tr>

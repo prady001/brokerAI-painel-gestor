@@ -1,12 +1,12 @@
 import type { RenewalResponse } from '@/lib/types';
 
 const RENEWAL_STATUS_STYLES: Record<RenewalResponse['status'], string> = {
-  pending: 'bg-slate-100 text-slate-700',
-  contacted: 'bg-blue-100 text-blue-800',
-  confirmed: 'bg-emerald-100 text-emerald-800',
-  refused: 'bg-red-100 text-red-800',
-  no_response: 'bg-amber-100 text-amber-800',
-  lost: 'bg-gray-100 text-gray-600',
+  pending: 'bg-white/10 text-text-secondary',
+  contacted: 'bg-blue/20 text-blue-light',
+  confirmed: 'bg-green/20 text-green',
+  refused: 'bg-red-500/20 text-red-400',
+  no_response: 'bg-amber-500/20 text-amber-400',
+  lost: 'bg-white/10 text-text-muted',
 };
 
 const RENEWAL_STATUS_LABELS: Record<RenewalResponse['status'], string> = {
@@ -44,56 +44,56 @@ interface RenewalListProps {
 export function RenewalList({ renewals }: RenewalListProps) {
   if (renewals.length === 0) {
     return (
-      <p className="rounded-lg border border-gray-200 bg-gray-50 px-4 py-6 text-center text-gray-500">
+      <p className="rounded-lg border border-border bg-bg-card px-4 py-6 text-center text-text-secondary">
         Nenhuma renovação cadastrada.
       </p>
     );
   }
 
   return (
-    <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-      <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-gray-50">
+    <div className="overflow-hidden rounded-lg border border-border bg-bg-card shadow-card-glow">
+      <table className="min-w-full">
+        <thead>
           <tr>
             <th
               scope="col"
-              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted"
             >
               Vencimento
             </th>
             <th
               scope="col"
-              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted"
             >
               Status
             </th>
             <th
               scope="col"
-              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted"
             >
               Intenção
             </th>
             <th
               scope="col"
-              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted"
             >
               Último contato
             </th>
             <th
               scope="col"
-              className="px-4 py-3 text-right text-xs font-medium uppercase tracking-wider text-gray-500"
+              className="px-4 py-3 text-right text-xs font-medium uppercase tracking-wider text-text-muted"
             >
               Contatos
             </th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-200 bg-white">
+        <tbody>
           {renewals.map((renewal) => (
             <tr
               key={renewal.id}
-              className="transition-colors duration-150 hover:bg-gray-50"
+              className="border-b border-border transition-colors duration-150 ease-out hover:bg-white/5"
             >
-              <td className="whitespace-nowrap px-4 py-3 text-sm text-gray-900">
+              <td className="whitespace-nowrap px-4 py-3 text-sm text-text-primary font-mono">
                 {formatDate(renewal.expiry_date)}
               </td>
               <td className="whitespace-nowrap px-4 py-3">
@@ -103,15 +103,15 @@ export function RenewalList({ renewals }: RenewalListProps) {
                   {RENEWAL_STATUS_LABELS[renewal.status]}
                 </span>
               </td>
-              <td className="whitespace-nowrap px-4 py-3 text-sm text-gray-600">
+              <td className="whitespace-nowrap px-4 py-3 text-sm text-text-secondary">
                 {renewal.client_intent
                   ? INTENT_LABELS[renewal.client_intent] ?? renewal.client_intent
                   : '—'}
               </td>
-              <td className="whitespace-nowrap px-4 py-3 text-sm text-gray-600">
+              <td className="whitespace-nowrap px-4 py-3 text-sm text-text-secondary">
                 {formatDate(renewal.last_contact_at)}
               </td>
-              <td className="whitespace-nowrap px-4 py-3 text-right text-sm text-gray-600 tabular-nums">
+              <td className="whitespace-nowrap px-4 py-3 text-right text-sm text-text-secondary tabular-nums font-mono">
                 {renewal.contact_count}
               </td>
             </tr>

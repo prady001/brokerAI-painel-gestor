@@ -41,54 +41,57 @@ export default async function ClientDetailPage({ params }: ClientDetailPageProps
 
   return (
     <main className="p-6">
-      <nav className="mb-4 text-sm text-gray-500">
-        <Link href="/clients" className="transition-colors hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded">
+      <nav className="mb-4 text-sm text-text-secondary">
+        <Link
+          href="/clients"
+          className="transition-colors hover:text-text-primary focus:outline-none focus:ring-2 focus:ring-blue focus:ring-offset-2 focus:ring-offset-bg-deep rounded"
+        >
           Clientes
         </Link>
-        <span className="mx-2">/</span>
-        <span className="text-gray-900">{client.full_name}</span>
+        <span className="mx-2 text-text-muted">/</span>
+        <span className="text-text-primary">{client.full_name}</span>
       </nav>
 
-      <section className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-        <h1 className="text-2xl font-semibold text-gray-900">{client.full_name}</h1>
+      <section className="rounded-lg border border-border bg-bg-card p-6 shadow-card-glow">
+        <h1 className="text-2xl font-semibold text-text-primary">{client.full_name}</h1>
         <dl className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           <div>
-            <dt className="text-xs font-medium uppercase tracking-wider text-gray-500">
+            <dt className="text-xs font-medium uppercase tracking-wider text-text-muted">
               CPF/CNPJ
             </dt>
-            <dd className="mt-0.5 font-mono text-sm text-gray-900">
+            <dd className="mt-0.5 font-mono text-sm text-text-primary">
               {client.cpf_cnpj ?? '—'}
             </dd>
           </div>
           <div>
-            <dt className="text-xs font-medium uppercase tracking-wider text-gray-500">
+            <dt className="text-xs font-medium uppercase tracking-wider text-text-muted">
               Telefone
             </dt>
-            <dd className="mt-0.5 text-sm text-gray-900">
+            <dd className="mt-0.5 text-sm text-text-primary">
               {formatPhone(client.phone_whatsapp)}
             </dd>
           </div>
           <div>
-            <dt className="text-xs font-medium uppercase tracking-wider text-gray-500">
+            <dt className="text-xs font-medium uppercase tracking-wider text-text-muted">
               E-mail
             </dt>
-            <dd className="mt-0.5 text-sm text-gray-900">
+            <dd className="mt-0.5 text-sm text-text-primary">
               {client.email ?? '—'}
             </dd>
           </div>
           <div>
-            <dt className="text-xs font-medium uppercase tracking-wider text-gray-500">
+            <dt className="text-xs font-medium uppercase tracking-wider text-text-muted">
               Data de nascimento
             </dt>
-            <dd className="mt-0.5 text-sm text-gray-900">
+            <dd className="mt-0.5 text-sm text-text-primary">
               {formatDate(client.birth_date)}
             </dd>
           </div>
           <div>
-            <dt className="text-xs font-medium uppercase tracking-wider text-gray-500">
+            <dt className="text-xs font-medium uppercase tracking-wider text-text-muted">
               Cadastrado em
             </dt>
-            <dd className="mt-0.5 text-sm text-gray-900">
+            <dd className="mt-0.5 text-sm text-text-primary">
               {formatDate(client.created_at)}
             </dd>
           </div>
@@ -96,17 +99,17 @@ export default async function ClientDetailPage({ params }: ClientDetailPageProps
       </section>
 
       <section className="mt-8">
-        <h2 className="mb-3 text-lg font-semibold text-gray-900">Apólices</h2>
+        <h2 className="mb-3 text-lg font-semibold text-text-primary">Apólices</h2>
         <PolicyList policies={client.policies} />
       </section>
 
       <section className="mt-8">
-        <h2 className="mb-3 text-lg font-semibold text-gray-900">Sinistros</h2>
+        <h2 className="mb-3 text-lg font-semibold text-text-primary">Sinistros</h2>
         <ClaimList claims={client.claims} />
       </section>
 
       <section className="mt-8">
-        <h2 className="mb-3 text-lg font-semibold text-gray-900">Renovações</h2>
+        <h2 className="mb-3 text-lg font-semibold text-text-primary">Renovações</h2>
         <RenewalList renewals={client.renewals} />
       </section>
     </main>

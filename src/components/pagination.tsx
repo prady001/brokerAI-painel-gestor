@@ -35,34 +35,34 @@ export function Pagination({
 
   return (
     <nav
-      className="flex items-center justify-between border-t border-gray-200 pt-4"
+      className="flex items-center justify-between border-t border-border pt-4"
       aria-label="Paginação"
     >
       <div>
         {prevHref ? (
           <Link
             href={prevHref}
-            className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="inline-flex items-center rounded border border-border-hover bg-bg-surface px-3 py-2 text-sm font-medium text-text-secondary transition-colors hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-blue focus:ring-offset-2 focus:ring-offset-bg-deep"
           >
             Anterior
           </Link>
         ) : (
-          <span className="inline-flex cursor-not-allowed items-center rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-sm font-medium text-gray-400">
+          <span className="inline-flex cursor-not-allowed items-center rounded border border-border bg-bg-surface px-3 py-2 text-sm font-medium text-text-muted">
             Anterior
           </span>
         )}
       </div>
-      <span className="text-sm text-gray-600">Página {currentPage}</span>
+      <span className="text-sm text-text-secondary">Página {currentPage}</span>
       <div>
         {nextHref ? (
           <Link
             href={nextHref}
-            className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="inline-flex items-center rounded border border-border-hover bg-bg-surface px-3 py-2 text-sm font-medium text-text-secondary transition-colors hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-blue focus:ring-offset-2 focus:ring-offset-bg-deep"
           >
             Próxima
           </Link>
         ) : (
-          <span className="inline-flex cursor-not-allowed items-center rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-sm font-medium text-gray-400">
+          <span className="inline-flex cursor-not-allowed items-center rounded border border-border bg-bg-surface px-3 py-2 text-sm font-medium text-text-muted">
             Próxima
           </span>
         )}

@@ -24,8 +24,8 @@ export default async function ClientsPage({ searchParams }: ClientsPageProps) {
 
   return (
     <main className="p-6">
-      <h1 className="text-2xl font-semibold text-gray-900">Clientes</h1>
-      <p className="mt-1 text-gray-500">
+      <h1 className="text-2xl font-semibold text-text-primary">Clientes</h1>
+      <p className="mt-1 text-text-secondary">
         Lista de clientes com busca e paginação.
       </p>
 

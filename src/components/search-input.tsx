@@ -52,7 +52,7 @@ export function SearchInput({
       onChange={(e) => setValue(e.target.value)}
       placeholder={placeholder}
       aria-label="Buscar clientes"
-      className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 placeholder-gray-500 transition-colors focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:max-w-xs hover:border-gray-400"
+      className="w-full rounded border border-border-hover bg-bg-surface px-3 py-2 text-sm text-text-primary placeholder-text-muted transition-colors focus:border-blue focus:outline-none focus:ring-1 focus:ring-blue sm:max-w-xs hover:border-border-hover"
     />
   );
 }

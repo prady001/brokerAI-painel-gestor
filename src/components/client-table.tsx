@@ -31,64 +31,64 @@ interface ClientTableProps {
 export function ClientTable({ clients }: ClientTableProps) {
   if (clients.length === 0) {
     return (
-      <p className="rounded-lg border border-gray-200 bg-gray-50 px-4 py-8 text-center text-gray-500">
+      <p className="rounded-lg border border-border bg-bg-card px-4 py-8 text-center text-text-secondary">
         Nenhum cliente encontrado.
       </p>
     );
   }
 
   return (
-    <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-      <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-gray-50">
+    <div className="overflow-hidden rounded-lg border border-border bg-bg-card shadow-card-glow">
+      <table className="min-w-full">
+        <thead>
           <tr>
             <th
               scope="col"
-              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted"
             >
               Nome
             </th>
             <th
               scope="col"
-              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted"
             >
               CPF
             </th>
             <th
               scope="col"
-              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted"
             >
               Telefone
             </th>
             <th
               scope="col"
-              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted"
             >
               Data de cadastro
             </th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-200 bg-white">
+        <tbody>
           {clients.map((client) => (
             <tr
               key={client.id}
-              className="transition-colors duration-150 hover:bg-gray-50"
+              className="border-b border-border transition-colors duration-150 ease-out hover:bg-white/5"
             >
-              <td className="whitespace-nowrap px-4 py-3 text-sm font-medium text-gray-900">
+              <td className="whitespace-nowrap px-4 py-3 text-sm font-medium">
                 <Link
                   href={`/clients/${client.id}`}
-                  className="text-blue-600 transition-colors hover:text-blue-800 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
+                  className="text-blue-light transition-colors hover:underline focus:outline-none focus:ring-2 focus:ring-blue focus:ring-offset-2 focus:ring-offset-bg-deep rounded"
                 >
                   {client.full_name}
                 </Link>
               </td>
-              <td className="whitespace-nowrap px-4 py-3 text-sm text-gray-600 font-mono">
+              <td className="whitespace-nowrap px-4 py-3 text-sm text-text-secondary font-mono">
                 {maskCpf(client.cpf_cnpj)}
               </td>
-              <td className="whitespace-nowrap px-4 py-3 text-sm text-gray-600">
+              <td className="whitespace-nowrap px-4 py-3 text-sm text-text-secondary">
                 {formatPhone(client.phone_whatsapp)}
               </td>
-              <td className="whitespace-nowrap px-4 py-3 text-sm text-gray-600">
+              <td className="whitespace-nowrap px-4 py-3 text-sm text-text-secondary">
                 {formatDate(client.created_at)}
               </td>
             </tr>

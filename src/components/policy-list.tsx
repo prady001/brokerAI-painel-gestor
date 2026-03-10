@@ -9,9 +9,9 @@ const POLICY_TYPE_LABELS: Record<NonNullable<PolicyResponse['type']>, string> = 
 };
 
 const POLICY_STATUS_STYLES: Record<PolicyResponse['status'], string> = {
-  active: 'bg-emerald-100 text-emerald-800',
-  expired: 'bg-amber-100 text-amber-800',
-  cancelled: 'bg-gray-100 text-gray-700',
+  active: 'bg-green/20 text-green',
+  expired: 'bg-amber-500/20 text-amber-400',
+  cancelled: 'bg-white/10 text-text-muted',
 };
 
 const POLICY_STATUS_LABELS: Record<PolicyResponse['status'], string> = {
@@ -50,62 +50,62 @@ interface PolicyListProps {
 export function PolicyList({ policies }: PolicyListProps) {
   if (policies.length === 0) {
     return (
-      <p className="rounded-lg border border-gray-200 bg-gray-50 px-4 py-6 text-center text-gray-500">
+      <p className="rounded-lg border border-border bg-bg-card px-4 py-6 text-center text-text-secondary">
         Nenhuma apólice cadastrada.
       </p>
     );
   }
 
   return (
-    <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-      <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-gray-50">
+    <div className="overflow-hidden rounded-lg border border-border bg-bg-card shadow-card-glow">
+      <table className="min-w-full">
+        <thead>
           <tr>
             <th
               scope="col"
-              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted"
             >
               Número
             </th>
             <th
               scope="col"
-              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted"
             >
               Tipo
             </th>
             <th
               scope="col"
-              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted"
             >
               Vigência
             </th>
             <th
               scope="col"
-              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+              className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-muted"
             >
               Status
             </th>
             <th
               scope="col"
-              className="px-4 py-3 text-right text-xs font-medium uppercase tracking-wider text-gray-500"
+              className="px-4 py-3 text-right text-xs font-medium uppercase tracking-wider text-text-muted"
             >
               Prêmio
             </th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-200 bg-white">
+        <tbody>
           {policies.map((policy) => (
             <tr
               key={policy.id}
-              className="transition-colors duration-150 hover:bg-gray-50"
+              className="border-b border-border transition-colors duration-150 ease-out hover:bg-white/5"
             >
-              <td className="whitespace-nowrap px-4 py-3 text-sm font-medium text-gray-900 font-mono">
+              <td className="whitespace-nowrap px-4 py-3 text-sm font-medium text-text-primary font-mono">
                 {policy.policy_number}
               </td>
-              <td className="whitespace-nowrap px-4 py-3 text-sm text-gray-600">
+              <td className="whitespace-nowrap px-4 py-3 text-sm text-text-secondary">
                 {policy.type ? POLICY_TYPE_LABELS[policy.type] : '—'}
               </td>
-              <td className="whitespace-nowrap px-4 py-3 text-sm text-gray-600">
+              <td className="whitespace-nowrap px-4 py-3 text-sm text-text-secondary">
                 {formatDate(policy.start_date)} a {formatDate(policy.end_date)}
               </td>
               <td className="whitespace-nowrap px-4 py-3">
@@ -115,7 +115,7 @@ export function PolicyList({ policies }: PolicyListProps) {
                   {POLICY_STATUS_LABELS[policy.status]}
                 </span>
               </td>
-              <td className="whitespace-nowrap px-4 py-3 text-right text-sm text-gray-600 tabular-nums">
+              <td className="whitespace-nowrap px-4 py-3 text-right text-sm text-text-secondary tabular-nums font-mono">
                 {formatPremium(policy.premium_amount)}
               </td>
             </tr>
