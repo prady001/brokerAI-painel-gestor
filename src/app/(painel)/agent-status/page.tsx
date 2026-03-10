@@ -1,6 +1,8 @@
 import { api } from '@/lib/api';
 import { formatTtl } from '@/lib/format-ttl';
 import type { ActiveConversation } from '@/lib/types';
+import { PageHeader } from '@/components/page-header';
+import { Reveal } from '@/components/reveal';
 
 function formatLastUpdated(iso: string): string {
   try {
@@ -62,22 +64,25 @@ export default async function AgentStatusPage() {
 
   return (
     <main className="p-6">
-      <h1 className="text-2xl font-semibold text-text-primary">
-        Status do agente
-      </h1>
-      <p className="mt-1 text-text-secondary">
-        Conversas ativas no assistente (sinistros e onboardings).
-      </p>
+      <PageHeader
+        tag="Assistente"
+        title="Status do agente"
+        titleGradient
+        subtitle="Conversas ativas no assistente (sinistros e onboardings)."
+      />
 
-      <div className="mt-6 flex items-center gap-2 rounded-lg border border-border bg-blue-500/10 px-4 py-2 text-sm text-blue-light">
-        <span className="font-medium">Total ativo:</span>
-        <span>{data.total_active} conversa(s)</span>
-      </div>
+      <Reveal variant="reveal">
+        <div className="flex items-center gap-2 rounded-lg border border-border bg-blue-500/10 px-4 py-2 text-sm text-blue-light">
+          <span className="font-medium">Total ativo:</span>
+          <span>{data.total_active} conversa(s)</span>
+        </div>
+      </Reveal>
 
-      <section className="mt-8">
-        <h2 className="mb-3 text-lg font-medium text-text-primary">
-          Conversas de sinistro ativas
-        </h2>
+      <Reveal variant="reveal" delay={100} className="mt-8">
+        <section>
+          <h2 className="mb-3 text-lg font-medium text-text-primary">
+            Conversas de sinistro ativas
+          </h2>
         {data.active_claims.length === 0 ? (
           <p className="rounded-lg border border-border bg-bg-card px-4 py-6 text-center text-sm text-text-muted">
             Nenhuma conversa de sinistro ativa no momento.
@@ -89,12 +94,14 @@ export default async function AgentStatusPage() {
             ))}
           </ul>
         )}
-      </section>
+        </section>
+      </Reveal>
 
-      <section className="mt-8">
-        <h2 className="mb-3 text-lg font-medium text-text-primary">
-          Onboardings em andamento
-        </h2>
+      <Reveal variant="reveal" delay={150} className="mt-8">
+        <section>
+          <h2 className="mb-3 text-lg font-medium text-text-primary">
+            Onboardings em andamento
+          </h2>
         {data.active_onboardings.length === 0 ? (
           <p className="rounded-lg border border-border bg-bg-card px-4 py-6 text-center text-sm text-text-muted">
             Nenhum onboarding em andamento no momento.
@@ -106,7 +113,8 @@ export default async function AgentStatusPage() {
             ))}
           </ul>
         )}
-      </section>
+        </section>
+      </Reveal>
     </main>
   );
 }

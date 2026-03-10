@@ -1,7 +1,9 @@
 import { api } from '@/lib/api';
 import { ClientTable } from '@/components/client-table';
-import { SearchInput } from '@/components/search-input';
+import { PageHeader } from '@/components/page-header';
 import { Pagination } from '@/components/pagination';
+import { Reveal } from '@/components/reveal';
+import { SearchInput } from '@/components/search-input';
 
 const PAGE_SIZE = 50;
 
@@ -24,26 +26,30 @@ export default async function ClientsPage({ searchParams }: ClientsPageProps) {
 
   return (
     <main className="p-6">
-      <h1 className="text-2xl font-semibold text-text-primary">Clientes</h1>
-      <p className="mt-1 text-text-secondary">
-        Lista de clientes com busca e paginação.
-      </p>
+      <PageHeader
+        tag="Sua carteira"
+        title="Clientes"
+        titleGradient
+        subtitle="Lista de clientes com busca e paginação."
+      />
 
-      <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <SearchInput defaultValue={search} />
-      </div>
+      <Reveal variant="reveal" delay={0}>
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <SearchInput defaultValue={search} />
+        </div>
+      </Reveal>
 
-      <div className="mt-4">
+      <Reveal variant="reveal" delay={100} className="mt-4">
         <ClientTable clients={clients} />
-      </div>
+      </Reveal>
 
-      <div className="mt-4">
+      <Reveal variant="reveal" delay={150} className="mt-4">
         <Pagination
           currentPage={page}
           hasNext={hasNext}
           search={search || undefined}
         />
-      </div>
+      </Reveal>
     </main>
   );
 }

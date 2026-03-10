@@ -12,7 +12,7 @@ export function StatCard({ title, value, icon }: StatCardProps) {
       <div className="flex items-start justify-between">
         <div>
           <p className="text-sm font-medium text-text-muted">{title}</p>
-          <p className="mt-1 font-mono text-2xl font-semibold tabular-nums text-text-primary">
+          <p className="mt-1 font-mono text-2xl font-extrabold tabular-nums text-text-primary">
             {value}
           </p>
         </div>

@@ -1,5 +1,7 @@
 import { api } from '@/lib/api';
 import { ExpiryAlert } from '@/components/expiry-alert';
+import { PageHeader } from '@/components/page-header';
+import { Reveal } from '@/components/reveal';
 import { StatCard } from '@/components/stat-card';
 
 function UsersIcon() {
@@ -90,41 +92,51 @@ export default async function DashboardPage() {
 
   return (
     <main className="p-6">
-      <h1 className="text-2xl font-semibold text-text-primary">Dashboard</h1>
-      <p className="mt-1 text-text-secondary">
-        Visão geral da sua base de clientes e apólices.
-      </p>
+      <PageHeader
+        tag="Visão geral"
+        title="Dashboard"
+        titleGradient
+        subtitle="Visão geral da sua base de clientes e apólices."
+      />
 
-      <section className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <StatCard
-          title="Total de clientes"
-          value={summary.total_clients}
-          icon={<UsersIcon />}
-        />
-        <StatCard
-          title="Apólices ativas"
-          value={summary.active_policies}
-          icon={<FileCheckIcon />}
-        />
-        <StatCard
-          title="Renovações pendentes"
-          value={summary.pending_renewals}
-          icon={<RefreshCwIcon />}
-        />
-        <StatCard
-          title="Sinistros em aberto"
-          value={summary.open_claims}
-          icon={<AlertTriangleIcon />}
-        />
+      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal variant="reveal-scale" delay={0}>
+          <StatCard
+            title="Total de clientes"
+            value={summary.total_clients}
+            icon={<UsersIcon />}
+          />
+        </Reveal>
+        <Reveal variant="reveal-scale" delay={100}>
+          <StatCard
+            title="Apólices ativas"
+            value={summary.active_policies}
+            icon={<FileCheckIcon />}
+          />
+        </Reveal>
+        <Reveal variant="reveal-scale" delay={200}>
+          <StatCard
+            title="Renovações pendentes"
+            value={summary.pending_renewals}
+            icon={<RefreshCwIcon />}
+          />
+        </Reveal>
+        <Reveal variant="reveal-scale" delay={300}>
+          <StatCard
+            title="Sinistros em aberto"
+            value={summary.open_claims}
+            icon={<AlertTriangleIcon />}
+          />
+        </Reveal>
       </section>
 
-      <section className="mt-8 max-w-md">
+      <Reveal variant="reveal" className="mt-8 max-w-md">
         <ExpiryAlert
           expiring30d={summary.policies_expiring_30d}
           expiring60d={summary.policies_expiring_60d}
           expiring90d={summary.policies_expiring_90d}
         />
-      </section>
+      </Reveal>
     </main>
   );
 }

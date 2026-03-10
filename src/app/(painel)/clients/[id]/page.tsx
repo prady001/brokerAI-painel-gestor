@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { api } from '@/lib/api';
-import { PolicyList } from '@/components/policy-list';
 import { ClaimList } from '@/components/claim-list';
+import { PageHeader } from '@/components/page-header';
+import { PolicyList } from '@/components/policy-list';
+import { Reveal } from '@/components/reveal';
 import { RenewalList } from '@/components/renewal-list';
 
 function formatDate(iso: string | null): string {
@@ -52,9 +54,10 @@ export default async function ClientDetailPage({ params }: ClientDetailPageProps
         <span className="text-text-primary">{client.full_name}</span>
       </nav>
 
-      <section className="rounded-lg border border-border bg-bg-card p-6 shadow-card-glow">
-        <h1 className="text-2xl font-semibold text-text-primary">{client.full_name}</h1>
-        <dl className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <Reveal variant="reveal">
+        <section className="rounded-lg border border-border bg-bg-card p-6 shadow-card-glow">
+          <PageHeader tag="Cliente" title={client.full_name} />
+          <dl className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           <div>
             <dt className="text-xs font-medium uppercase tracking-wider text-text-muted">
               CPF/CNPJ
@@ -96,22 +99,29 @@ export default async function ClientDetailPage({ params }: ClientDetailPageProps
             </dd>
           </div>
         </dl>
-      </section>
+        </section>
+      </Reveal>
 
-      <section className="mt-8">
-        <h2 className="mb-3 text-lg font-semibold text-text-primary">Apólices</h2>
-        <PolicyList policies={client.policies} />
-      </section>
+      <Reveal variant="reveal" delay={100} className="mt-8">
+        <section>
+          <h2 className="mb-3 text-lg font-semibold text-text-primary">Apólices</h2>
+          <PolicyList policies={client.policies} />
+        </section>
+      </Reveal>
 
-      <section className="mt-8">
-        <h2 className="mb-3 text-lg font-semibold text-text-primary">Sinistros</h2>
-        <ClaimList claims={client.claims} />
-      </section>
+      <Reveal variant="reveal" delay={150} className="mt-8">
+        <section>
+          <h2 className="mb-3 text-lg font-semibold text-text-primary">Sinistros</h2>
+          <ClaimList claims={client.claims} />
+        </section>
+      </Reveal>
 
-      <section className="mt-8">
-        <h2 className="mb-3 text-lg font-semibold text-text-primary">Renovações</h2>
-        <RenewalList renewals={client.renewals} />
-      </section>
+      <Reveal variant="reveal" delay={200} className="mt-8">
+        <section>
+          <h2 className="mb-3 text-lg font-semibold text-text-primary">Renovações</h2>
+          <RenewalList renewals={client.renewals} />
+        </section>
+      </Reveal>
     </main>
   );
 }
