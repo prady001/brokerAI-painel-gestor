@@ -53,21 +53,86 @@ const MOCK_CLIENTS: ClientResponse[] = [
   },
 ];
 
-const MOCK_POLICIES = [
+const MOCK_POLICIES: ClientFull['policies'] = [
   {
     id: 'b6a790d3-1111-2222-3333-444455556666',
     client_id: '3dce3590-aaa0-450a-8f5f-ff31d413d2d1',
     policy_number: '1263287',
-    type: 'auto' as const,
-    status: 'active' as const,
+    type: 'auto',
+    status: 'active',
     premium_amount: '1200.00',
     start_date: '2026-03-10',
     end_date: '2027-03-09',
   },
+  {
+    id: 'c7b801e4-2222-3333-4444-555566667777',
+    client_id: '3dce3590-aaa0-450a-8f5f-ff31d413d2d1',
+    policy_number: '1263288',
+    type: 'home',
+    status: 'active',
+    premium_amount: '850.50',
+    start_date: '2025-06-01',
+    end_date: '2026-05-31',
+  },
+  {
+    id: 'd8c912f5-3333-4444-5555-666677778888',
+    client_id: 'a1b2c3d4-e5f6-7890-abcd-ef1234567890',
+    policy_number: '2001001',
+    type: 'auto',
+    status: 'expired',
+    premium_amount: '980.00',
+    start_date: '2024-01-15',
+    end_date: '2025-01-14',
+  },
 ];
 
-const MOCK_CLAIMS: ClientFull['claims'] = [];
-const MOCK_RENEWALS: ClientFull['renewals'] = [];
+const MOCK_CLAIMS: ClientFull['claims'] = [
+  {
+    id: 'claim-001',
+    policy_id: 'b6a790d3-1111-2222-3333-444455556666',
+    client_id: '3dce3590-aaa0-450a-8f5f-ff31d413d2d1',
+    type: 'colisão',
+    severity: 'grave',
+    status: 'in_progress',
+    description: 'Batida na traseira',
+    occurrence_date: '2026-02-15',
+    opened_at: '2026-02-16T10:00:00',
+  },
+  {
+    id: 'claim-002',
+    policy_id: 'b6a790d3-1111-2222-3333-444455556666',
+    client_id: '3dce3590-aaa0-450a-8f5f-ff31d413d2d1',
+    type: 'guincho',
+    severity: 'simple',
+    status: 'closed',
+    description: null,
+    occurrence_date: '2025-11-20',
+    opened_at: '2025-11-20T14:30:00',
+  },
+];
+
+const MOCK_RENEWALS: ClientFull['renewals'] = [
+  {
+    id: 'ren-001',
+    policy_id: 'c7b801e4-2222-3333-4444-555566667777',
+    client_id: '3dce3590-aaa0-450a-8f5f-ff31d413d2d1',
+    expiry_date: '2026-05-31',
+    status: 'contacted',
+    contact_count: 2,
+    last_contact_at: '2026-03-08T11:00:00',
+    client_intent: 'wants_quote',
+  },
+  {
+    id: 'ren-002',
+    policy_id: 'b6a790d3-1111-2222-3333-444455556666',
+    client_id: '3dce3590-aaa0-450a-8f5f-ff31d413d2d1',
+    expiry_date: '2027-03-09',
+    status: 'pending',
+    contact_count: 0,
+    last_contact_at: null,
+    client_intent: null,
+  },
+];
 
 function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -115,8 +180,8 @@ export async function getClientFull(id: string): Promise<ClientFull | null> {
   return {
     ...client,
     policies: MOCK_POLICIES.filter((p) => p.client_id === id),
-    claims: MOCK_CLAIMS,
-    renewals: MOCK_RENEWALS,
+    claims: MOCK_CLAIMS.filter((c) => c.client_id === id),
+    renewals: MOCK_RENEWALS.filter((r) => r.client_id === id),
   };
 }
 
