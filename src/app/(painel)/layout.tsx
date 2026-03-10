@@ -22,6 +22,12 @@ export default function PainelLayout({
           >
             Clientes
           </Link>
+          <Link
+            href="/agent-status"
+            className="text-sm text-gray-600 hover:text-gray-900"
+          >
+            Status do agente
+          </Link>
         </nav>
         <Link
           href="/api/auth/logout"
