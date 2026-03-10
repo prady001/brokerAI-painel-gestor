@@ -83,7 +83,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={loading}
-                className="mt-1 block w-full rounded-lg border border-border-hover bg-bg-surface px-3 py-2.5 text-text-primary placeholder:text-text-muted transition-colors focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40 disabled:opacity-60"
+                className="mt-1 block w-full rounded-lg border border-border-hover bg-bg-surface px-3 py-2.5 text-text-primary placeholder:text-text-muted transition-colors focus:border-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 disabled:opacity-60"
                 placeholder="seu@email.com"
               />
             </div>
@@ -102,7 +102,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 disabled={loading}
-                className="mt-1 block w-full rounded-lg border border-border-hover bg-bg-surface px-3 py-2.5 text-text-primary placeholder:text-text-muted transition-colors focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40 disabled:opacity-60"
+                className="mt-1 block w-full rounded-lg border border-border-hover bg-bg-surface px-3 py-2.5 text-text-primary placeholder:text-text-muted transition-colors focus:border-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 disabled:opacity-60"
               />
             </div>
 
@@ -118,7 +118,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded-lg bg-gradient-to-br from-blue to-cyan px-4 py-2.5 text-sm font-medium text-white shadow-btn-primary transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-btn-primary-hover focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-bg-deep disabled:cursor-not-allowed disabled:translate-y-0 disabled:opacity-60 disabled:hover:shadow-btn-primary"
+              className="w-full rounded-lg bg-gradient-to-br from-blue to-cyan px-4 py-2.5 text-sm font-medium text-white shadow-btn-primary transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-btn-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-deep disabled:cursor-not-allowed disabled:translate-y-0 disabled:opacity-60 disabled:hover:shadow-btn-primary"
             >
               {loading ? 'Entrando…' : 'Entrar'}
             </button>

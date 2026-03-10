@@ -77,7 +77,7 @@ export function ClientTable({ clients }: ClientTableProps) {
               <td className="whitespace-nowrap px-4 py-3 text-sm font-medium">
                 <Link
                   href={`/clients/${client.id}`}
-                  className="text-blue-light transition-colors hover:underline focus:outline-none focus:ring-2 focus:ring-blue focus:ring-offset-2 focus:ring-offset-bg-deep rounded"
+                  className="rounded text-blue-light transition-colors hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-bg-deep"
                 >
                   {client.full_name}
                 </Link>

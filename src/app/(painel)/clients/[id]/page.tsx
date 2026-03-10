@@ -44,7 +44,7 @@ export default async function ClientDetailPage({ params }: ClientDetailPageProps
       <nav className="mb-4 text-sm text-text-secondary">
         <Link
           href="/clients"
-          className="transition-colors hover:text-text-primary focus:outline-none focus:ring-2 focus:ring-blue focus:ring-offset-2 focus:ring-offset-bg-deep rounded"
+          className="rounded transition-colors hover:text-text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-bg-deep"
         >
           Clientes
         </Link>

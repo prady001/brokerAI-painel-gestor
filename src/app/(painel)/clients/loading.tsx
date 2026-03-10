@@ -10,15 +10,15 @@ export default function ClientsLoading() {
         <Skeleton className="h-10 w-full max-w-xs rounded-md" />
       </div>
 
-      <div className="mt-4 overflow-hidden rounded-lg border border-gray-200 bg-white">
-        <div className="border-b border-gray-200 bg-gray-50 px-4 py-3">
+      <div className="mt-4 overflow-hidden rounded-lg border border-border bg-bg-card">
+        <div className="border-b border-border bg-white/5 px-4 py-3">
           <div className="flex gap-4">
             {[1, 2, 3, 4].map((i) => (
               <Skeleton key={i} className="h-4 w-24" />
             ))}
           </div>
         </div>
-        <div className="divide-y divide-gray-100">
+        <div className="divide-y divide-border">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
             <div key={i} className="flex gap-4 px-4 py-3">
               <Skeleton className="h-4 w-40" />
@@ -30,7 +30,7 @@ export default function ClientsLoading() {
         </div>
       </div>
 
-      <div className="mt-4 flex items-center justify-between border-t border-gray-200 pt-4">
+      <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
         <Skeleton className="h-10 w-24 rounded-md" />
         <Skeleton className="h-4 w-20" />
         <Skeleton className="h-10 w-20 rounded-md" />

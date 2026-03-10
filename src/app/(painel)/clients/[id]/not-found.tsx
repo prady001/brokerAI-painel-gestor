@@ -12,7 +12,7 @@ export default function ClientNotFound() {
         </p>
         <Link
           href="/clients"
-          className="mt-4 inline-block rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-amber-700 active:bg-amber-800 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
+          className="mt-4 inline-block rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-amber-700 active:bg-amber-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-deep"
         >
           Voltar para clientes
         </Link>

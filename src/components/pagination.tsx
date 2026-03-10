@@ -42,7 +42,7 @@ export function Pagination({
         {prevHref ? (
           <Link
             href={prevHref}
-            className="inline-flex items-center rounded border border-border-hover bg-bg-surface px-3 py-2 text-sm font-medium text-text-secondary transition-colors hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-blue focus:ring-offset-2 focus:ring-offset-bg-deep"
+            className="inline-flex items-center rounded border border-border-hover bg-bg-surface px-3 py-2 text-sm font-medium text-text-secondary transition-colors hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-bg-deep"
           >
             Anterior
           </Link>
@@ -57,7 +57,7 @@ export function Pagination({
         {nextHref ? (
           <Link
             href={nextHref}
-            className="inline-flex items-center rounded border border-border-hover bg-bg-surface px-3 py-2 text-sm font-medium text-text-secondary transition-colors hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-blue focus:ring-offset-2 focus:ring-offset-bg-deep"
+            className="inline-flex items-center rounded border border-border-hover bg-bg-surface px-3 py-2 text-sm font-medium text-text-secondary transition-colors hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-bg-deep"
           >
             Próxima
           </Link>

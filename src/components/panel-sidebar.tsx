@@ -21,7 +21,7 @@ function NavLink({
   return (
     <Link
       href={href}
-      className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-all duration-200 ease-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-bg-deep ${
+      className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-deep ${
         isActive
           ? 'bg-blue-500/10 text-text-primary'
           : 'text-text-muted hover:bg-white/5 hover:text-text-secondary'
@@ -40,7 +40,7 @@ export function PanelSidebar() {
       <div className="flex items-center gap-2 border-b border-border px-4 py-4">
         <Link
           href="/dashboard"
-          className="text-base font-bold text-text-primary transition-colors hover:text-blue-light focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-bg-surface rounded"
+          className="rounded text-base font-bold text-text-primary transition-colors hover:text-blue-light focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-surface"
         >
           BrokerAI
         </Link>
