@@ -8,7 +8,7 @@ interface StatCardProps {
 
 export function StatCard({ title, value, icon }: StatCardProps) {
   return (
-    <div className="group rounded-lg border border-border bg-bg-card p-5 shadow-card-glow transition-[border-color,box-shadow] duration-200 ease-out hover:border-border-hover hover:shadow-card-glow">
+    <div className="card-hover-glow group rounded-lg border border-border bg-bg-card p-5 shadow-card-glow">
       <div className="flex items-start justify-between">
         <div>
           <p className="text-sm font-medium text-text-muted">{title}</p>

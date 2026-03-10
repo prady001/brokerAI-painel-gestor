@@ -46,7 +46,7 @@ export function ErrorFeedback({
         <button
           type="button"
           onClick={onRetry}
-          className="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-gradient-to-br from-blue to-cyan px-4 py-2.5 text-sm font-medium text-white shadow-btn-primary transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-btn-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-deep active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
+          className="btn-hover-overlay relative mt-6 inline-flex w-full items-center justify-center rounded-lg bg-gradient-to-br from-blue to-cyan px-4 py-2.5 text-sm font-medium text-white shadow-btn-primary transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-btn-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-deep active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {retryLabel}
         </button>

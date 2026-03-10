@@ -52,7 +52,7 @@ export function ExpiryAlert({
   ];
 
   return (
-    <div className="rounded-lg border border-border bg-bg-card p-5 shadow-card-glow">
+    <div className="card-hover-glow rounded-lg border border-border bg-bg-card p-5 shadow-card-glow">
       <h2 className="mb-3 text-sm font-semibold text-text-primary">
         Apólices por faixa de vencimento
       </h2>

@@ -141,6 +141,43 @@
   filter: blur(0);
 }
 
+.card-hover-glow {
+  position: relative;
+  transition:
+    transform 0.4s var(--ease-out),
+    box-shadow 0.4s var(--ease-out),
+    background-color 0.4s var(--ease-out);
+}
+
+.card-hover-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--gradient);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-out);
+}
+
+.card-hover-glow:hover {
+  transform: translateY(-2px);
+  background: var(--bg-card-hover);
+}
+
+.card-hover-glow:hover::before {
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal-left,
@@ -158,6 +195,80 @@
   .reveal-scale.visible,
   .reveal-blur.visible {
     opacity: 1;
+  }
+
+  .card-hover-glow:hover {
+    transform: none;
+  }
+}
+
+.btn-hover-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-hover-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.25s var(--ease-out);
+  pointer-events: none;
+}
+
+.btn-hover-overlay:hover::before {
+  opacity: 1;
+}
+
+.nav-link-gradient-underline {
+  position: relative;
+}
+
+.nav-link-gradient-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--gradient);
+  width: 0;
+  transition: width 0.3s var(--ease-out);
+}
+
+.nav-link-gradient-underline:hover::after,
+.nav-link-gradient-underline[data-active='true']::after {
+  width: 100%;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.15);
+  }
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.6);
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge-dot {
+    animation: none;
   }
 }
 

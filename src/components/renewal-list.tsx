@@ -51,7 +51,7 @@ export function RenewalList({ renewals }: RenewalListProps) {
   }
 
   return (
-    <div className="overflow-hidden rounded-lg border border-border bg-bg-card shadow-card-glow">
+    <div className="card-hover-glow overflow-hidden rounded-lg border border-border bg-bg-card shadow-card-glow">
       <table className="min-w-full">
         <thead>
           <tr>
@@ -91,7 +91,7 @@ export function RenewalList({ renewals }: RenewalListProps) {
           {renewals.map((renewal) => (
             <tr
               key={renewal.id}
-              className="border-b border-border transition-colors duration-150 ease-out hover:bg-white/5"
+              className="border-b border-border transition-colors duration-200 ease-out hover:bg-white/[0.03]"
             >
               <td className="whitespace-nowrap px-4 py-3 text-sm text-text-primary font-mono">
                 {formatDate(renewal.expiry_date)}

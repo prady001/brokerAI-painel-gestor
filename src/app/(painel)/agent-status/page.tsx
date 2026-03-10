@@ -36,7 +36,7 @@ function ConversationRow({
   type: ConversationType;
 }) {
   return (
-    <li className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-border bg-bg-card px-4 py-3 shadow-card-glow transition-[border-color,box-shadow] duration-200 ease-out hover:border-border-hover">
+    <li className="card-hover-glow flex flex-wrap items-center justify-between gap-2 rounded-lg border border-border bg-bg-card px-4 py-3 shadow-card-glow">
       <span className="font-mono text-sm text-text-primary">
         {formatPhone(item.phone)}
       </span>
@@ -73,6 +73,9 @@ export default async function AgentStatusPage() {
 
       <Reveal variant="reveal">
         <div className="flex items-center gap-2 rounded-lg border border-border bg-blue-500/10 px-4 py-2 text-sm text-blue-light">
+          {data.total_active > 0 && (
+            <span className="badge-dot shrink-0" aria-hidden />
+          )}
           <span className="font-medium">Total ativo:</span>
           <span>{data.total_active} conversa(s)</span>
         </div>
