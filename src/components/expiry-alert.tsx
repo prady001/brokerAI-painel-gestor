@@ -11,27 +11,31 @@ interface ExpiryAlertProps {
 }
 
 const variantStyles = {
-  danger: 'bg-red-50 text-red-800 border-red-200',
-  warning: 'bg-amber-50 text-amber-800 border-amber-200',
-  success: 'bg-emerald-50 text-emerald-800 border-emerald-200',
+  danger:
+    'bg-red-500/10 text-red-400 border border-red-500/30',
+  warning:
+    'bg-amber-500/10 text-amber-400 border border-amber-500/30',
+  success:
+    'bg-green-500/10 text-green-400 border border-green-500/30',
 };
 
-const variantBadge = {
-  danger: '🔴',
-  warning: '🟡',
-  success: '🟢',
+const variantLabelStyles = {
+  danger: 'text-red-400',
+  warning: 'text-amber-400',
+  success: 'text-green-400',
 };
 
 function ExpiryRow({ label, count, variant }: ExpiryItem) {
   return (
     <div
-      className={`flex items-center justify-between rounded-md border px-3 py-2 transition-opacity duration-150 hover:opacity-90 ${variantStyles[variant]}`}
+      className={`flex items-center justify-between rounded-lg border px-3 py-2.5 transition-opacity duration-150 hover:opacity-90 ${variantStyles[variant]}`}
     >
-      <span className="flex items-center gap-2 font-medium">
-        <span aria-hidden>{variantBadge[variant]}</span>
+      <span className={`font-medium ${variantLabelStyles[variant]}`}>
         {label}
       </span>
-      <span className="tabular-nums font-semibold">{count}</span>
+      <span className="font-mono tabular-nums font-semibold text-text-primary">
+        {count}
+      </span>
     </div>
   );
 }
@@ -48,8 +52,8 @@ export function ExpiryAlert({
   ];
 
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
-      <h2 className="mb-3 text-sm font-semibold text-gray-700">
+    <div className="rounded-lg border border-border bg-bg-card p-5 shadow-card-glow">
+      <h2 className="mb-3 text-sm font-semibold text-text-primary">
         Apólices por faixa de vencimento
       </h2>
       <ul className="space-y-2">

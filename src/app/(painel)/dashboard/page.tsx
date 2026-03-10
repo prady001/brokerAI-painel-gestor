@@ -90,8 +90,8 @@ export default async function DashboardPage() {
 
   return (
     <main className="p-6">
-      <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
-      <p className="mt-1 text-gray-500">
+      <h1 className="text-2xl font-semibold text-text-primary">Dashboard</h1>
+      <p className="mt-1 text-text-secondary">
         Visão geral da sua base de clientes e apólices.
       </p>
 

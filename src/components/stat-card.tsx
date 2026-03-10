@@ -8,16 +8,16 @@ interface StatCardProps {
 
 export function StatCard({ title, value, icon }: StatCardProps) {
   return (
-    <div className="group rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition-all duration-200 hover:shadow-md hover:border-gray-300">
+    <div className="group rounded-lg border border-border bg-bg-card p-5 shadow-card-glow transition-[border-color,box-shadow] duration-200 ease-out hover:border-border-hover hover:shadow-card-glow">
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-sm font-medium text-gray-500">{title}</p>
-          <p className="mt-1 text-2xl font-semibold text-gray-900 tabular-nums">
+          <p className="text-sm font-medium text-text-muted">{title}</p>
+          <p className="mt-1 font-mono text-2xl font-semibold tabular-nums text-text-primary">
             {value}
           </p>
         </div>
         {icon && (
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gray-100 text-gray-600 transition-colors duration-200 group-hover:bg-gray-200">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/5 text-text-secondary transition-colors duration-200 ease-out group-hover:bg-white/10 group-hover:text-text-primary">
             {icon}
           </div>
         )}
