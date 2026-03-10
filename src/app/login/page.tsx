@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { Reveal } from '@/components/reveal';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -58,10 +59,34 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-bg-deep px-4">
-      <div className="w-full max-w-md">
-        <div className="rounded-xl border border-border bg-bg-card p-8 shadow-card-glow transition-[border-color,box-shadow] duration-200 ease-out hover:border-border-hover hover:shadow-card-glow">
-          <h1 className="text-2xl font-semibold text-text-primary">
+    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-bg-deep px-4">
+      <div
+        className="pointer-events-none fixed inset-0 z-0"
+        aria-hidden
+      >
+        <div
+          className="absolute inset-0 opacity-[0.4]"
+          style={{
+            background:
+              'radial-gradient(ellipse 80% 50% at 50% 0%, var(--gradient-glow) 0%, transparent 55%)',
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(180deg, transparent 0%, var(--bg-deep) 70%)',
+          }}
+        />
+      </div>
+      <div className="grain z-[1]" aria-hidden />
+      <div className="relative z-10 w-full max-w-md">
+        <Reveal
+          variant="reveal-scale"
+          delay={0}
+          className="card-hover-glow rounded-xl border border-border bg-bg-card p-8 shadow-card-glow transition-[border-color,box-shadow] duration-200 ease-out hover:border-border-hover hover:shadow-card-glow"
+        >
+          <h1 className="gradient-text text-2xl font-semibold">
             Painel do Gestor
           </h1>
           <p className="mt-1 text-sm text-text-secondary">
@@ -123,7 +148,7 @@ export default function LoginPage() {
               {loading ? 'Entrando…' : 'Entrar'}
             </button>
           </form>
-        </div>
+        </Reveal>
 
         <p className="mt-4 text-center text-xs text-text-muted">
           Modo mock: use <code className="rounded bg-bg-surface px-1.5 py-0.5 text-text-secondary">admin@brokerai.com</code> / <code className="rounded bg-bg-surface px-1.5 py-0.5 text-text-secondary">123456</code>

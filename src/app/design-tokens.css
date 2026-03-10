@@ -200,6 +200,14 @@
   .card-hover-glow:hover {
     transform: none;
   }
+
+  .btn-hover-overlay:hover {
+    transform: none;
+  }
+
+  .nav-link-gradient-underline::after {
+    transition-duration: 0.05s;
+  }
 }
 
 .btn-hover-overlay {
