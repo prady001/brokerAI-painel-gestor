@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 const pathTitles: Record<string, string> = {
   '/dashboard': 'Dashboard',
@@ -27,14 +28,17 @@ export function PanelHeader() {
 
   return (
     <header className="flex flex-col gap-4 border-b border-border bg-bg-base/50 px-4 py-4 sm:px-6">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-3">
         <h1 className="text-lg font-semibold text-text-primary">{title}</h1>
-        <Link
-          href="/api/auth/logout"
-          className="rounded-lg border border-border-hover bg-white/5 px-4 py-2 text-sm font-medium text-text-primary transition-all duration-200 ease-out hover:border-border hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base"
-        >
-          Sair
-        </Link>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <Link
+            href="/api/auth/logout"
+            className="rounded-lg border border-border-hover bg-white/5 px-4 py-2 text-sm font-medium text-text-primary transition-all duration-200 ease-out hover:border-border hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base"
+          >
+            Sair
+          </Link>
+        </div>
       </div>
       <nav className="flex flex-wrap gap-2 lg:hidden">
         {navItems.map(({ href, label }) => {

@@ -7,22 +7,22 @@ todos:
     status: completed
   - id: auth-mock
     content: Implementar fluxo de autenticação mockado (rotas de login/logout, cookie fake, página de login)
-    status: pending
+    status: completed
   - id: dashboard-ui
     content: Construir página `/dashboard` com UI polida, usando dados mockados
-    status: pending
+    status: completed
   - id: clients-list
     content: Construir `/clients` com tabela, busca com debounce e paginação via URL, usando mocks
-    status: pending
+    status: completed
   - id: client-detail
     content: Construir `/clients/[id]` com cabeçalho do cliente e listas de apólices/sinistros/renovações
-    status: pending
+    status: completed
   - id: agent-status
     content: Construir `/agent-status` com listas de conversas e onboardings mockados
-    status: pending
+    status: completed
   - id: ux-polish
     content: Refinar estados de loading, erros e interações visuais em todas as páginas
-    status: pending
+    status: completed
 isProject: false
 ---
 

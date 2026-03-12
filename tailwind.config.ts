@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
+  darkMode: 'class',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -9,22 +10,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'bg-deep': '#030712',
-        'bg-base': '#0a0f1e',
-        'bg-surface': '#111827',
-        'bg-card': 'rgba(15, 23, 42, 0.55)',
+        'bg-deep': 'var(--bg-deep)',
+        'bg-base': 'var(--bg-base)',
+        'bg-surface': 'var(--bg-surface)',
+        'bg-card': 'var(--bg-card)',
         blue: {
-          DEFAULT: '#3b82f6',
-          light: '#60a5fa',
+          DEFAULT: 'var(--blue)',
+          light: 'var(--blue-light)',
         },
-        cyan: '#06b6d4',
-        green: '#22c55e',
-        'text-primary': '#f1f5f9',
-        'text-secondary': '#94a3b8',
-        'text-muted': '#64748b',
+        cyan: 'var(--cyan)',
+        green: 'var(--green)',
+        'text-primary': 'var(--text-primary)',
+        'text-secondary': 'var(--text-secondary)',
+        'text-muted': 'var(--text-muted)',
         border: {
-          DEFAULT: 'rgba(148, 163, 184, 0.08)',
-          hover: 'rgba(148, 163, 184, 0.15)',
+          DEFAULT: 'var(--border)',
+          hover: 'var(--border-hover)',
         },
       },
       borderRadius: {
